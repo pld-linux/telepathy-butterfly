@@ -1,4 +1,5 @@
 Summary:	A Telepathy connection manager for MSN
+Summary(pl.UTF-8):	Zarządca połączeń Telepathy dla MSN
 Name:		telepathy-butterfly
 Version:	0.1.4
 Release:	1
@@ -8,12 +9,16 @@ Source0:	http://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%
 # Source0-md5:	1f7cdbbdd45a85695931839b33bd6863
 URL:		http://telepathy.freedesktop.org/wiki/
 BuildRequires:	python
+BuildRequires:	rpm-pythonprov
 Requires:	python-pymsn
 Requires:	telepathy-python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A connection manager to connect Telepathy to MSN.
+
+%description -l pl.UTF-8
+Zarządca połączeń pozwalający połączyć się Telepathy z MSN.
 
 %prep
 %setup -q
@@ -28,8 +33,7 @@ python setup.py install \
         --root=$RPM_BUILD_ROOT \
         --optimize=2
 
-find $RPM_BUILD_ROOT%{py_sitescriptdir}/ -name \*.py | xargs rm -f
-
+find $RPM_BUILD_ROOT%{py_sitescriptdir} -name \*.py | xargs rm -f
 
 %clean
 rm -rf $RPM_BUILD_ROOT
