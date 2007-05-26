@@ -11,7 +11,7 @@ URL:		http://telepathy.freedesktop.org/wiki/
 BuildRequires:	python
 BuildRequires:	rpm-pythonprov
 Requires:	python-pymsn
-Requires:	telepathy-python
+Requires:	python-telepathy
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
