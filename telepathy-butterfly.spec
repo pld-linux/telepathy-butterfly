@@ -8,8 +8,9 @@ Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
 # Source0-md5:	1f7cdbbdd45a85695931839b33bd6863
 URL:		http://telepathy.freedesktop.org/wiki/
-BuildRequires:	python
+BuildRequires:	python >= 1:2.5
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	python-pymsn
 Requires:	python-telepathy
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,7 +34,7 @@ python setup.py install \
         --root=$RPM_BUILD_ROOT \
         --optimize=2
 
-find $RPM_BUILD_ROOT%{py_sitescriptdir} -name \*.py | xargs rm -f
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,3 +47,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.butterfly.service
 %dir %{py_sitescriptdir}/TelepathyButterfly
 %{py_sitescriptdir}/TelepathyButterfly/*.py[co]
+%{py_sitescriptdir}/telepathy_butterfly-*.egg-info
