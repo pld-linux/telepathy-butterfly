@@ -1,3 +1,5 @@
+# TODO
+# - try system waf
 Summary:	A Telepathy connection manager for MSN
 Summary(pl.UTF-8):	Zarządca połączeń Telepathy dla MSN
 Name:		telepathy-butterfly
