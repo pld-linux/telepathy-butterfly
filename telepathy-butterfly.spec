@@ -2,7 +2,7 @@ Summary:	A Telepathy connection manager for MSN
 Summary(pl.UTF-8):	Zarządca połączeń Telepathy dla MSN
 Name:		telepathy-butterfly
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
@@ -25,7 +25,13 @@ Zarządca połączeń pozwalający połączyć się Telepathy z MSN.
 %setup -q
 
 %build
-./waf configure --prefix=%{_prefix} --libexecdir=%{_libdir}
+%ifarch %{x8664}
+PYTHONDIR=%{py_sitedir} \
+%endif
+./waf configure \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--libexecdir=%{_libdir}
 ./waf build
 
 %install
