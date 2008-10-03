@@ -4,7 +4,7 @@ Summary:	A Telepathy connection manager for MSN
 Summary(pl.UTF-8):	Zarządca połączeń Telepathy dla MSN
 Name:		telepathy-butterfly
 Version:	0.3.1
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
