@@ -1,12 +1,12 @@
 Summary:	A Telepathy connection manager for MSN
 Summary(pl.UTF-8):	Zarządca połączeń Telepathy dla MSN
 Name:		telepathy-butterfly
-Version:	0.5.9
+Version:	0.5.11
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
-# Source0-md5:	1d663cf89346cf48a46c6f9119917a0e
+# Source0-md5:	03fa849eb154c20f77c70bc76b400001
 URL:		http://telepathy.freedesktop.org/wiki/
 BuildRequires:	python >= 1:2.5
 BuildRequires:	rpm-pythonprov
