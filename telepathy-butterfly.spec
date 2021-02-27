@@ -5,7 +5,7 @@ Version:	0.5.15
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
+Source0:	https://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
 # Source0-md5:	4baa6337822f01d817c4b9d8fd406e82
 URL:		http://telepathy.freedesktop.org/wiki/
 BuildRequires:	python >= 1:2.5
@@ -36,6 +36,7 @@ Zarządca połączeń pozwalający połączyć się Telepathy z MSN.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
