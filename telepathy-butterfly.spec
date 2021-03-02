@@ -3,20 +3,22 @@ Summary(pl.UTF-8):	Zarządca połączeń Telepathy dla MSN
 Name:		telepathy-butterfly
 Version:	0.5.15
 Release:	1
-License:	LGPL
+License:	GPL v2+
 Group:		Libraries
 Source0:	https://telepathy.freedesktop.org/releases/telepathy-butterfly/%{name}-%{version}.tar.gz
 # Source0-md5:	4baa6337822f01d817c4b9d8fd406e82
-URL:		http://telepathy.freedesktop.org/wiki/
+URL:		https://telepathy.freedesktop.org/
 BuildRequires:	python >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-Requires:	python-papyon >= 0.4.2
-Requires:	python-telepathy >= 0.15.17
+BuildRequires:	sed >= 4.0
+Requires:	python-dbus
+Requires:	python-pygobject >= 2
+Requires:	python-papyon >= 0.5.3
+Requires:	python-telepathy >= 0.15.19
 Suggests:	python-libproxy
 Conflicts:	empathy < 2.29.92
-# we install to %{_libdir}, otherwise package could be noarch
-#BuildArch:	noarch
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,6 +29,8 @@ Zarządca połączeń pozwalający połączyć się Telepathy z MSN.
 
 %prep
 %setup -q
+
+%{__sed} -i -e '1s,/usr/bin/python$,%{__python},' telepathy-butterfly
 
 %build
 %configure \
@@ -47,8 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS
-%attr(755,root,root) %{_libdir}/telepathy-butterfly
+%doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_libexecdir}/telepathy-butterfly
 %{_datadir}/telepathy/managers/butterfly.manager
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.butterfly.service
 %dir %{py_sitescriptdir}/butterfly
